@@ -7,10 +7,18 @@ export default function TodoItem({ item, todos, setTodos }) {
     setTodos(updatedTodos);
   }
 
+  function handleClick() {
+    let target = todos.find((todo) => todo.name === item.name);
+    target.done = !target.done;
+    setTodos([...todos]);
+
+    event.target.classList.toggle(styles.completed);
+  }
+
   return (
     <div className={styles.todoItem}>
       <div className={styles.itemTitle}>
-        {item.name}
+        <span onClick={handleClick}> {item.name}</span>
         <span>
           <button className={styles.deleteButton} onClick={handleDelete}>
             x
