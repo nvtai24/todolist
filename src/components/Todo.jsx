@@ -9,6 +9,8 @@ export default function Todo() {
   const completed = todos.filter((item) => item.done).length;
   const total = todos.length;
 
+  todos.sort((i1, i2) => i1.done - i2.done);
+
   return (
     <>
       <Form todos={todos} setTodos={setTodos} />
